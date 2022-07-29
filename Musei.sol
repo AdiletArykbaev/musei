@@ -13,15 +13,16 @@ contract Musei{
         uint256 timestamp;
     }
    constructor() public{   
-        owner=msg.sender;
-        parentNFT = IERC1155()
+        
     }
   
-   function paytosmart(uint256 value) public payable{
+   function paytosmart() public payable{
       
    }
        
-       
+   function getParentNft(address nft) public{
+        parentNFT = IERC1155(nft);
+ }    
      
     function stake(uint256 _tokenId, uint256 _amount) public {
         stakes[msg.sender] = Stake(_tokenId, _amount, block.timestamp); 
@@ -46,8 +47,5 @@ contract Musei{
    function getBalance( address target) public view returns(uint256){
         return target.balance;
     }
-    function getOwner(
-    ) public view returns (address) {    
-        return owner;
-    }
+
 }
